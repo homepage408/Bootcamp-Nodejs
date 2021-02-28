@@ -2,46 +2,46 @@ const fs = require("fs");
 const axios = require("axios");
 
 // path "/" atau process.cwd()
-// const readDir = () => {
-//   return new Promise((resolve, reject) => {
-//     fs.readdir(process.cwd(), (err, result) => {
-//       if (true) {
-//         resolve(result);
-//       } else {
-//         reject(err);
-//       }
-//     });
-//   });
-// };
+const readDir = () => {
+  return new Promise((resolve, reject) => {
+    fs.readdir(process.cwd(), (err, result) => {
+      if (true) {
+        resolve(result);
+      } else {
+        reject(err);
+      }
+    });
+  });
+};
 
-// readDir()
-//   .then((res) => {
-//     console.log(res);
-//     console.log("=================================================");
-//   })
-//   .catch((err) => console.log(err));
+readDir()
+  .then((res) => {
+    console.log(res);
+    console.log("=================================================");
+  })
+  .catch((err) => console.log(err));
 
-// const getData = () => {
-//   axios.get(`https://jsonplaceholder.typicode.com/posts`).then((res) => {
-//     let dataPosts = res.data;
-//     // console.log(dataPosts.name);
-//     axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
-//       let dataUsers = res.data;
-//       // console.log(dataPosts);
-//       let dataMerge = dataPosts.map((e, i) => {
-//         let temp = dataUsers.find((element) => element.id === e.userId);
-//         if (temp) {
-//           e.user = temp;
-//         }
-//         return e;
-//       });
-//       console.log(dataMerge);
-//       console.log("=================================================");
-//     });
-//   });
-// };
+const getData = () => {
+  axios.get(`https://jsonplaceholder.typicode.com/posts`).then((res) => {
+    let dataPosts = res.data;
+    // console.log(dataPosts.name);
+    axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
+      let dataUsers = res.data;
+      // console.log(dataPosts);
+      let dataMerge = dataPosts.map((e, i) => {
+        let temp = dataUsers.find((element) => element.id === e.userId);
+        if (temp) {
+          e.user = temp;
+        }
+        return e;
+      });
+      console.log(dataMerge);
+      console.log("=================================================");
+    });
+  });
+};
 
-// getData();
+getData();
 
 // const looping = () => {
 //   return new Promise((resolve) => {
@@ -63,32 +63,32 @@ const axios = require("axios");
 //   console.log("Done");
 // });
 
-// const looping = () => {
-//   return new Promise((resolve, reject) => {
-//     for (let i = 1; i <= 3; i++) {
-//       setTimeout(() => {
-//         // resolve(i)
-//         console.log(i);
-//       }, 1000);
-//     }
-//   });
-// };
+const looping = () => {
+  return new Promise((resolve, reject) => {
+    for (let i = 1; i <= 3; i++) {
+      setTimeout(() => {
+        // resolve(i)
+        console.log(i);
+      }, 1000);
+    }
+  });
+};
 
-// const stringDone = () => {
-//   return new Promise((resolve, reject) => {
-//     console.log("Done");
-//   });
-// };
+const stringDone = () => {
+  return new Promise((resolve, reject) => {
+    console.log("Done");
+  });
+};
 
-// const caller = async () => {
-//   const result1 = await looping();
-//   const result2 = await stringDone();
-//   return result1, result2;
-// };
+const caller = async () => {
+  const result1 = await looping();
+  const result2 = await stringDone();
+  return result1, result2;
+};
 
-// caller().then((res) => {
-//   console.log(res);
-// });
+caller().then((res) => {
+  console.log(res);
+});
 
 // (async () => {
 //   await looping().then((res) => {
@@ -109,7 +109,7 @@ const getDataSalary = () => {
   })
 }
 
-// getDataSalary()
+getDataSalary()
 
 
 const getDataCity = () => {
@@ -123,15 +123,15 @@ const getDataCity = () => {
   })
 }
 
-// getDataCity()
+getDataCity()
 
-const getBirthdayLimit = () => {
-  const d = new Date();
-  const year = d.getFullYear();
-  const month = 10
-  const day = d.getDate();
-  return new Date(2019, month - 1);
-};
+// const getBirthdayLimit = () => {
+//   const d = new Date();
+//   const year = d.getFullYear();
+//   const month = 10
+//   const day = d.getDate();
+//   return new Date(2019, month - 1);
+// };
 
 // console.log(getBirthdayLimit())
 
@@ -147,7 +147,7 @@ const getDataBirthday = () => {
   })
 }
 
-// getDataBirthday()
+getDataBirthday()
 
 const getDataDepartement = () => {
   axios.get("https://mul14.github.io/data/employees.json").then((res) => {
@@ -160,7 +160,7 @@ const getDataDepartement = () => {
   })
 }
 
-// getDataDepartement()
+getDataDepartement()
 
 
 const getDataAbsences = () => {
