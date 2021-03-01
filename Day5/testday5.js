@@ -121,7 +121,29 @@ scrapeBerita = async (url)=>{
 }
 
 scrapeBerita(`https://www.kompas.com/`)
-// Nomor 3 Scraping belum bisa diselesaikan
+// =========================================================================================
+// Nomor 3 Scraping 
+
+const request = require("request");
+const cheerio = require("cheerio");
+
+request("https://www.kompas.com/", (err, res, html) => {
+  if (!err && res.statusCode == 200) {
+    const $ = cheerio.load(html);
+
+    $(".most__list.clearfix").each((i, el) => {
+      const title = $(el).find(".most__title").text();
+      const link = $(el).find("a").attr("href");
+      // console.log(title, link);
+      data = {
+        Title :title,
+        URL : link
+      }
+      console.log(data)
+    });
+  }
+});
+
 // Nomor 4 themoviedb dengan API belum dikerjakan
 // =========================================================================================
 
