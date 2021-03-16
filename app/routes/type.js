@@ -15,6 +15,7 @@ router
 router
   .route("/types/:id")
   .delete([verifyJWT, permit("admin")], TypeController.deleteTypes)
+  .patch([verifyJWT, permit("admin")],TypeController.updateTypes)
   .get(
     [verifyJWT, permit("admin", "guest")],
     TypeController.getAllVehicleFiltering

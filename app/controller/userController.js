@@ -74,12 +74,13 @@ class UserController {
 
   static async updateUser(req, res, next) {
     try {
+      const { salt, hash } = hashing(req.body.password);
       const newData = {
         fullname: req.body.fullname,
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password,
-        salt: req.body.salt,
+        password: hash,
+        salt: salt,
         photo: req.body.photo,
         role: req.body.role,
       };
