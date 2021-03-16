@@ -8,6 +8,7 @@ const { router: routerTypes } = require("./app/routes/type");
 const { router: routerLogin } = require("./app/routes/login");
 const { router: routerUser } = require("./app/routes/user");
 const { router: routerVehicle } = require("./app/routes/vehicle");
+const { router: routerRental } = require("./app/routes/rental");
 const { errorHandler } = require("./app/utils/middleware/errorHandlers");
 const { notFound } = require("./app/utils/middleware/notFound");
 const { logger } = require("./app/utils/middleware/morgan");
@@ -34,7 +35,7 @@ app.use(Sentry.Handlers.tracingHandler());
 app.use(logger);
 app.use(morgan("dev"));
 
-router.use("/api/v1", [routerTypes, routerLogin, routerVehicle, routerUser]);
+router.use("/api/v1", [routerTypes, routerLogin, routerVehicle, routerUser, routerRental]);
 app.use(router);
 
 app.use(Sentry.Handlers.errorHandler());
